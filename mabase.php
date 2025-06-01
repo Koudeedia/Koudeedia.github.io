@@ -1,0 +1,10 @@
+CREATE DATABASE Portefolio;
+USE Portefolio;
+
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    objet VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    date_envoi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
