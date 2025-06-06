@@ -117,7 +117,7 @@ WHERE w.id_utilisateur = $id_utilisateur");
 <?php endif; ?>
 
 <div style="text-align:center;">
-    <a href="index.php" class="btn"> Retour à la boutique</a>
+    <a href="indexx.php" class="btn"> Retour à la boutique</a>
 </div>
 
 </body>
