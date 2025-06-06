@@ -1,0 +1,128 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7fa;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.header {
+    background: #2d2d2d;
+    padding: 10px 0;
+    margin-bottom: 50px;
+}
+
+.container {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px 28px 24px 28px;
+    border-radius: 46px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+h1.h1 {
+    text-align: center;
+    color: #7b3768;
+    margin-bottom: 32px;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.commandes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff;
+}
+.commandes-table th, .commandes-table td {
+    padding: 14px 10px;
+    text-align: left;
+}
+.commandes-table th {
+    background: #f8e5f3;
+    color: #b60d6e;
+    font-weight: bold;
+    font-size: 1em;
+    border-bottom: 2px solid #b60d6e;
+}
+.commandes-table tr:nth-child(even) {
+    background: #f7f7fa;
+}
+.commandes-table td {
+    border-bottom: 1px solid #eee;
+    font-size: 0.98em;
+}
+.badge {
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+.badge.en-attente,
+.badge.en_attente,
+.badge.en.attente {
+    background: #fff3cd;
+    color: #856404;
+}
+.badge.payée {
+    background: #d4edda;
+    color: #155724;
+}
+.badge.expédiée {
+    background: #bee5eb;
+    color: #0c5460;
+}
+.badge.livrée {
+    background: #c3e6cb;
+    color: #155724;
+}
+.badge.annulée {
+    background: #f8d7da;
+    color: #721c24;
+}
+.btn-link {
+    color: #b60d6e;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.btn-link:hover {
+    color: #222;
+}
+.empty-state {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 1.1em;
+    color: #888;
+}
+.btn.btn-primary {
+    display: inline-block;
+    background: #b60d6e;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 12px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.btn.btn-primary:hover {
+    background: #8a0a54;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .container {
+        padding: 10px 2vw;
+    }
+    .commandes-table th, .commandes-table td {
+        padding: 8px 5px;
+        font-size: 0.95em;
+    }
+    h1.h1 {
+        font-size: 1.2em;
+    }
+}

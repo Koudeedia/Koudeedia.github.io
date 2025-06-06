@@ -1,0 +1,41 @@
+<!-- Diany-Kani MALIYA Koudedia TIMBO -->
+CREATE DATABASE projetPHP;
+USE projetPHP;
+
+
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    motDePasse VARCHAR(255)
+);
+
+
+CREATE TABLE articles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    prix DECIMAL(10,2)
+);
+
+
+CREATE TABLE panier (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    utilisateur_id INT,
+    article_id INT,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id),
+    FOREIGN KEY (article_id) REFERENCES articles(id)
+);
+INSERT INTO articles (nom, prix) VALUES ('Grillz', 200.00);
+INSERT INTO articles (nom, prix) VALUES ('Parure collier et boucles', 1229.00);
+INSERT INTO articles (nom, prix) VALUES ('Algerian Kabyle Jewels', 567.00);
+INSERT INTO articles (nom, prix) VALUES ('Chic ensemble', 130.00);
+INSERT INTO articles (nom, prix) VALUES ('Bagues', 29.00);
+INSERT INTO articles (nom, prix) VALUES ('Collier en perle', 209.00);
+INSERT INTO articles (nom, prix) VALUES ('Montre traditionnelle', 99.00);
+INSERT INTO articles (nom, prix) VALUES ('Ensemble 2.0', 289.00);
+INSERT INTO articles (nom, prix) VALUES ('DABADI Grillz', 169.00);
+INSERT INTO articles (nom, prix) VALUES ('Ensemble collier+bagues streat', 59.00);
+INSERT INTO articles (nom, prix) VALUES ('Bagues tradi', 49.00);
+INSERT INTO articles (nom, prix) VALUES ('Enssemble classe', 349.00);
+INSERT INTO articles (nom, prix) VALUES ('Kabyle moderne', 849.00);
+INSERT INTO panier (utilisateur_id, article_id) VALUES (ID_UTILISATEUR, ID_ARTICLE);

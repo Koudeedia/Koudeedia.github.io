@@ -1,0 +1,1149 @@
+<!-- Diany-Kani MAYILA Koudedia TIMBO -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>JewelsWorld</title>
+  <link rel="stylesheet" href="PremierProjetInfoCSS.css">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  
+
+</head>
+
+<body id="top">
+
+  <header class="header">
+    <style>
+      .banniere-fidelite {
+          background-color: #ec7de2;
+          padding: 10px;
+          text-align: center;
+          font-size: 16px;
+          color: #fff;
+      }
+
+      .banniere-fidelite.connecte {
+          background-color: #7b3768;
+          color: #fff;
+      }
+  </style>
+</head>
+<body>
+
+<?php if (!isset($_SESSION['user_id'])): ?>
+<div class="banniere-fidelite connecte">
+  Votre compte fidélité est activé : -10% sur tous vos achats + cumul de points !
+</div>
+  
+<?php else: ?>
+<div class="banniere-fidelite">
+  Inscrivez-vous ou connectez-vous pour activer votre compte de fidélité et obtenir une réduction de -10% !
+</div>
+<?php endif; ?>
+
+    <div class="header-top" data-header>
+      <div class="container">
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="input-wrapper">
+          <input type="search" name="search" placeholder="Search product" class="search-field">
+
+          <button class="search-submit" aria-label="search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <a href="#" class="logo">
+          <img src="img/Logoo.png" width="179" height="26" alt="JewelsWorld">
+        </a>
+      </section>
+        <nav class="navbar">
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link has-after">Acceuil</a>
+            </li>
+
+            <li>
+              <a href="#collection" class="navbar-link has-after">Collection</a>
+            </li>
+
+            <li>
+              <a href="#shop" class="navbar-link has-after">Shop</a>
+            </li>
+
+            <li>
+              <a href="#offer" class="navbar-link has-after">Offre</a>
+            </li>
+
+            <li>
+              <a href="#blog" class="navbar-link has-after">Blog</a>
+            </li>
+
+            <li>
+              <a href="#Inscription" class="navbar-link" data-nav-link>Inscription</a>
+            </li>
+            <a href="panier.php" class="link" style="color:#060606">Panier<span><?=array_sum($_SESSION['panier'])?></span></a>
+    <section class="products_list">
+      
+        <?php 
+        //inclure la page de connexion
+        include_once "condb.php";
+        //afficher la liste des produits
+         $req = mysqli_query($con, "SELECT * FROM articles");
+         while($row = mysqli_fetch_assoc($req)){ 
+        ?>
+
+        <?php } ?>
+            <?php session_start(); ?>
+            <div style="position:fixed;top:10px;right:10px;">
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <a href="logout.php" style="padding:5px 10px;background:#ec7de2;color:#fff;border:none;border-radius:4px;text-decoration:none;font-size:13px;">Déconnexion</a>
+            <?php else: ?>
+                <a href="login.php" style="padding:5px 10px;background:#7b3768;color:#fff;border:none;border-radius:4px;text-decoration:none;font-size:13px;">Connexion</a>
+            <?php endif; ?>
+            </div>
+            
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+  </header>
+
+
+  <div class="sidebar">
+    <div class="mobile-navbar" data-navbar>
+
+      <div class="wrapper">
+        <a href="#" class="logo">
+          <img src="img/Logo.png" width="179" height="26" alt="JewelsWorld">
+          
+        </a>
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+
+        <li>
+          <a href="#home" class="navbar-link" data-nav-link>Acceuil</a>
+        </li>
+
+        <li>
+          <a href="#collection" class="navbar-link" data-nav-link>Collection</a>
+        </li>
+
+        <li>
+          <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
+        </li>
+
+        <li>
+          <a href="#offer" class="navbar-link" data-nav-link>Offre</a>
+        </li>
+
+        <li>
+          <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+        </li>
+
+        <li>
+          <a href="#Incription" class="navbar-link" data-nav-link>Incription</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+  </div>
+
+
+
+
+
+  <main>
+    <article>
+
+      <section class="section hero" id="home" aria-label="hero" data-section>
+        <div class="container">
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('./img/Page\ acceuil.jpg')">
+
+                <div class="card-content">
+
+                  <h1 class="h1 hero-title">
+                    Sublimez chaque instant<br>
+                    Avec des bijoux qui racontent votre histoire
+                  </h1>
+
+                  <p class="hero-text">
+                    Conçus avec des matériaux de qualité et respectueux de votre peau, nos bijoux s’adaptent à tous les styles. 
+                  </p>
+
+                  <p class="price">À partir de 30 €</p>
+
+                  <a href="index.php" class="btn btn-primary">Acheter maintenant</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('./img/ac2.jpg')"">
+
+                <div class="card-content">
+
+                  <h1 class="h1 hero-title">
+                    Sublimez chaque instant<br>
+                    Avec des bijoux qui racontent votre histoire
+                  </h1>
+
+                  <p class="hero-text">
+                    Conçus avec des matériaux de qualité et respectueux de votre peau, nos bijoux s’adaptent à tous les styles
+                  </p>
+
+                  <p class="price">À partir de 30 €</p>
+
+                  <a href="index.php" class="btn btn-primary">Acheter maintenant</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="background-image: url('./img/ac3.jpg')">
+
+                <div class="card-content">
+
+                  <h1 class="h1 hero-title">
+                    Sublimez chaque instant<br>
+                    Avec des bijoux qui racontent votre histoire
+                  </h1>
+
+                  <p class="hero-text">
+                    Conçus avec des matériaux de qualité et respectueux de votre peau, nos bijoux s’adaptent à tous les styles
+                  </p>
+
+                  <p class="price">À partir de 30 €</p>
+
+                  <a href="index.php" class="btn btn-primary">Acheter maintenant</a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      
+      <section class="section collection" id="collection" aria-label="collection" data-section>
+        <div class="container">
+
+          <ul class="collection-list">
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="h2 card-title">Collection Maghrébine</h2>
+
+                <p class="card-text">A partir de 50 €</p>
+
+                <a href="index.php" class="btn-link">
+                  <span class="span">Découvrir maintenant</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('./img/SOUN2.jpg')"></div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="h2 card-title">Collection Westaff</h2>
+
+                <p class="card-text">A partir de 50 €</p>
+
+                <a href="index.php" class="btn-link">
+                  <span class="span">Découvrir maintenant</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('./img/enssemble\ colier2.jpg')"></div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+
+                <h2 class="h2 card-title">Collection Classique</h2>
+
+                <p class="card-text">A partir de 50 €</p>
+
+                <a href="index.php" class="btn-link">
+                  <span class="span">Découvrir maintenant</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="background-image: url('./img/produit12.jpg')"></div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      
+
+      <section class="section shop" id="shop" aria-label="shop" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Nos Bestsellers</h2>
+
+            <a href="index.php" class="btn-link">
+              <span class="span">Acheter tous les produits</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit1.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">€300.00</del>
+
+                    <span class="span">€200.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Grillz</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit2.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€1229.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Parure collier et boucles</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit3.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€567.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Algerian Kabyle Jewels</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="./img/produit4.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€130.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Chic ensemble</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit5.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">€39.00</del>
+
+                    <span class="span">€29.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Bagues</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="section shop" id="shop" aria-label="shop" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Entre €300</h2>
+
+            <a href="index.php" class="btn-link">
+              <span class="span">Acheter tous les produits</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+
+          <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit6.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">€249.00</del>
+
+                    <span class="span">€209.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Collier en perle</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit7" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€99.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Montre traditionnelle</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="rating-wrapper" aria-label="5 start rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit8.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                    <button class="action-btn" aria-label="add to cart">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="add to whishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€289.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Ensemble</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit9.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+                    <div class="card-actions">
+
+                      <button class="action-btn" aria-label="add to cart">
+                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                      </button>
+  
+                      <button class="action-btn" aria-label="add to whishlist">
+                        <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                      </button>
+  
+                      <button class="action-btn" aria-label="compare">
+                        <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                      </button>
+  
+                    </div>
+                  
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€169.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Grillz</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                    <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                      <img src="img/produit10.jpg" width="540" height="720" loading="lazy"
+                        alt="JewelsWorld" class="img-cover">
+                        <div class="card-actions">
+    
+                          <button class="action-btn" aria-label="add to cart">
+                            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                          </button>
+      
+                          <button class="action-btn" aria-label="add to whishlist">
+                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                          </button>
+      
+                          <button class="action-btn" aria-label="compare">
+                            <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                          </button>
+      
+                        </div>
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit10.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <span class="badge" aria-label="20% off">-20%</span>
+
+                  <div class="card-actions">
+
+                    
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <del class="del">€99.00</del>
+
+                    <span class="span">€59.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Ensemble collier+bagues streat</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+            
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="shop-card">
+
+                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
+                  <img src="img/produit11.jpg" width="540" height="720" loading="lazy"
+                    alt="JewelsWorld" class="img-cover">
+
+                  <div class="card-actions">
+
+                  </div>
+                </div>
+
+                <div class="card-content">
+
+                  <div class="price">
+                    <span class="span">€49.00</span>
+                  </div>
+
+                  <h3>
+                    <a href="#shop" class="card-title">Bagues tradi</a>
+                  </h3>
+
+                  <div class="card-rating">
+
+                   
+
+                    <p class="rating-text">5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      
+
+      <section class="section banner" aria-label="banner" data-section>
+        <div class="container">
+
+          <ul class="banner-list">
+
+            <li>
+              <div class="banner-card banner-card-1 has-before hover:shine">
+
+                <p class="card-subtitle">Nouvelle Collection</p>
+
+                <h2 class="h2 card-title">Clean girl</h2>
+
+                <a href="#shop" class="btn btn-secondary">Decouvrer maintenant</a>
+
+                <div class="has-bg-image" style="background-image: url('./img/About.jpg')"></div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="banner-card banner-card-2 has-before hover:shine">
+
+                <h2 class="h2 card-title">25% Sur toute la collection</h2>
+
+                <p class="card-text">
+                  Nouvelle tendance, nouvelle élégance ! Découvrez la collection Clean Girl et trouvez la pièce qui sublimera votre look
+                </p>
+
+                <a href="index.php" class="btn btn-secondary">Explorer maintenant</a>
+
+                <div class="has-bg-image" style="background-image: url('./img/new.jpg')"></div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!--OFFER-->
+
+      <section class="section offer" id="offer" aria-label="offer" data-section>
+        <div class="container">
+
+          <figure class="offer-banner">
+            <img src="img/produit13.jpg" width="305" height="408" loading="lazy" alt="offer products"
+              class="w-100">
+
+            <img src="img/produit14.jpg"450" height="625" loading="lazy" alt="offer products"
+              class="w-100">
+          </figure>
+
+          <div class="offer-content">
+
+            <p class="offer-subtitle">
+              <span class="span">Offre Spécial</span>
+
+              <span class="badge" aria-label="20% off">-20%</span>
+            </p>
+
+            <h2 class="h2-large section-title">Traditionnelle</h2>
+
+            <p class="section-text">
+              Entre héritage et modernité, notre collection traditionnelle célèbre l’art et la culture à travers des bijoux uniques.
+            </p>
+
+            <div class="countdown">
+
+              <span class="time" aria-label="days">15</span>
+              <span class="time" aria-label="hours">21</span>
+              <span class="time" aria-label="minutes">46</span>
+              <span class="time" aria-label="seconds">08</span>
+
+            </div>
+
+            <a href="#shop" class="btn btn-primary">Pour €90.00 seulement!</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <section class="section blog" id="blog" aria-label="blog" data-section>
+        <div class="container">
+
+          <h2 class="h2-large section-title">Découvrez plus</h2>
+
+          <ul class="flex-list">
+
+            <li class="flex-item">
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
+                  <img src="./img/Boutique.jpg" width="700" height="450" loading="lazy" alt="Find a Store"
+                    class="img-cover">
+                </figure>
+
+                <h3 class="h3">
+                  <a href="https://maps.app.goo.gl/mYhzSMjLJjGTAsEP6"  class="card-title">Trouver notre boutique</a>
+                </h3>
+
+                <a href="https://maps.app.goo.gl/mYhzSMjLJjGTAsEP6" class="btn-link">
+                  <span class="span">Notre boutique</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
+                  <img src="./img/notrehistoire.jpg" width="700" height="450" loading="lazy" alt="From Our Blog"
+                    class="img-cover">
+                </figure>
+
+                <h3 class="h3">
+                  <a href="https://www.youtube.com/@histoiredorbenelux2460" class="card-title">Notre Blog</a>
+                </h3>
+
+                <a href="https://maps.app.goo.gl/mYhzSMjLJjGTAsEP6" class="btn-link">
+                  <span class="span">Notre boutique</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450;">
+                  <img src="./img/notrehistoire2.jpg" width="700" height="450" loading="lazy" alt="Our Story"
+                    class="img-cover">
+                </figure>
+
+                <h3 class="h3">
+                  <a href="https://www.youtube.com/@histoiredorbenelux2460" class="card-title">Notre Histoire</a>
+                </h3>
+
+                <a href="https://maps.app.goo.gl/mYhzSMjLJjGTAsEP6" class="btn-link">
+                  <span class="span">Notre boutique</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+  
+
+  <section class="Inscription" id="Inscription" aria-label="Inscription" data-section>
+    <div class="container">
+      <ul class="flex-list">
+          <!-- afficher le nombre de produit dans le panier -->
+        <h2>Créer un compte</h2>
+        <form method="POST" action="PremierProjetInfo.php" >
+            <label>Nom :</label>
+            <input type="text" name="nom" required><br><br>
+        
+            <label>Email :</label>
+            <input type="email" name="email" required><br><br>
+        
+            <label>Mot de passe :</label>
+            <input type="password" name="motDePasse" required><br><br>
+        
+            <button type="submit" name="valider" value="inscription">S'inscrire</button>
+        </form>
+        
+  </section>
+
+  <script src="PremierProjetInfoJS.js"defer></script>
+ 
+  <footer class="footer">
+
+
+  </footer>
+    
+</body>
+
+</html>
