@@ -11,7 +11,7 @@ include_once "condb.php";
     <link rel="stylesheet" href="paniercss.css">
 </head>
 <body>
-    <a href="PremierProjetInfoHtml.html" class="link">Retour à la boutique</a>
+    <a href="index.html" class="link">Retour à la boutique</a>
     <a href="panier.php" class="link">Voir le panier</a>
     <a href="ma_wishlist.php" class="link">Voir ma Wishlist</a>
 
